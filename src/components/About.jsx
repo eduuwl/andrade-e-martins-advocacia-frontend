@@ -10,9 +10,9 @@ const POINTS = [
 
 export default function About() {
   return (
-    <section id="sobre" className="bg-navy-900 py-24 lg:py-32">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
-        <Reveal direction="right" className="order-2 lg:order-1 relative">
+    <section id="sobre" className="bg-navy-900 py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <Reveal direction="right" className="order-2 lg:order-1 relative mt-6 lg:mt-0">
           <motion.div
             whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 200, damping: 20 }}
@@ -36,7 +36,7 @@ export default function About() {
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute -top-5 -right-5 rounded-xl bg-gold-500 px-5 py-3 shadow-xl"
+            className="absolute -top-3 -right-3 sm:-top-5 sm:-right-5 rounded-xl bg-gold-500 px-4 py-2.5 sm:px-5 sm:py-3 shadow-xl"
           >
             <p className="text-xs font-semibold text-navy-950">Dra. Camila Martins</p>
             <p className="text-[11px] text-navy-950/70">OAB/SP 000.000</p>

@@ -24,7 +24,7 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   return (
-    <section id="depoimentos" className="bg-cream-100 py-24 lg:py-32">
+    <section id="depoimentos" className="bg-cream-100 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-widest text-gold-600">
@@ -35,7 +35,7 @@ export default function Testimonials() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid md:grid-cols-3 gap-6">
+        <div className="mt-10 sm:mt-14 grid md:grid-cols-3 gap-5 sm:gap-6">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.1}>
               <motion.figure

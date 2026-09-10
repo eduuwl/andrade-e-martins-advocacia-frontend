@@ -11,8 +11,8 @@ export default function Contact() {
   }
 
   return (
-    <section id="contato" className="bg-navy-950 py-24 lg:py-32">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8 grid lg:grid-cols-[0.9fr_1.1fr] gap-16">
+    <section id="contato" className="bg-navy-950 py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8 grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16">
         <Reveal direction="right">
           <span className="text-xs font-semibold uppercase tracking-widest text-gold-400">
             Contato
@@ -39,10 +39,10 @@ export default function Contact() {
                 transition={{ delay: 0.1 + i * 0.1, duration: 0.4 }}
                 className="flex items-center gap-3 text-cream-100/80"
               >
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-gold-400">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/5 text-gold-400">
                   {icon}
                 </span>
-                {text}
+                <span className="min-w-0 break-words">{text}</span>
               </motion.div>
             ))}
           </div>
@@ -51,7 +51,7 @@ export default function Contact() {
         <Reveal direction="left" delay={0.1}>
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl bg-white/5 border border-white/10 p-8 backdrop-blur-sm"
+            className="rounded-2xl bg-white/5 border border-white/10 p-5 sm:p-8 backdrop-blur-sm"
           >
             <AnimatePresence mode="wait">
               {sent ? (

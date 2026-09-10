@@ -41,7 +41,7 @@ export default function Hero() {
   return (
     <section
       id="topo"
-      className="relative overflow-hidden bg-navy-950 pt-40 pb-28 lg:pt-48 lg:pb-36"
+      className="relative overflow-hidden bg-navy-950 pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-48 lg:pb-36"
     >
       {/* decorative background */}
       <div className="pointer-events-none absolute inset-0">
@@ -72,7 +72,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative mx-auto max-w-6xl px-6 lg:px-8 grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center"
+        className="relative mx-auto max-w-6xl px-6 lg:px-8 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center"
       >
         <div>
           <motion.span
@@ -120,14 +120,14 @@ export default function Hero() {
 
           <motion.dl
             variants={item}
-            className="mt-14 grid grid-cols-3 gap-6 max-w-md border-t border-white/10 pt-8"
+            className="mt-10 sm:mt-14 grid grid-cols-3 gap-3 sm:gap-6 max-w-md border-t border-white/10 pt-6 sm:pt-8"
           >
             {STATS.map((s) => (
-              <div key={s.label}>
-                <dt className="font-serif text-2xl text-gold-400">
+              <div key={s.label} className="min-w-0">
+                <dt className="font-serif text-xl sm:text-2xl text-gold-400">
                   <CountUp value={s.n} suffix={s.suffix} decimals={s.decimals ?? 0} />
                 </dt>
-                <dd className="mt-1 text-xs text-cream-100/60">{s.label}</dd>
+                <dd className="mt-1 text-[11px] sm:text-xs text-cream-100/60 leading-snug">{s.label}</dd>
               </div>
             ))}
           </motion.dl>

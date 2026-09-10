@@ -55,7 +55,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden text-cream-50 p-2"
+          className="md:hidden -mr-2 flex h-11 w-11 items-center justify-center text-cream-50"
           aria-label="Abrir menu"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
