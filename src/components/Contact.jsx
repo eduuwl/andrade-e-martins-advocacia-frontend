@@ -2,6 +2,32 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Reveal from './Reveal'
 
+const ICONS = {
+  pin: (
+    <>
+      <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0Z" />
+      <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0Z" />
+    </>
+  ),
+  mail: (
+    <>
+      <path d="M3 6.75A2.25 2.25 0 015.25 4.5h13.5A2.25 2.25 0 0121 6.75v10.5A2.25 2.25 0 0118.75 19.5H5.25A2.25 2.25 0 013 17.25V6.75Z" />
+      <path d="M3.5 7 12 13l8.5-6" />
+    </>
+  ),
+  phone: (
+    <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106a1.125 1.125 0 00-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25Z" />
+  ),
+}
+
+function ContactIcon({ name }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <g strokeLinecap="round" strokeLinejoin="round">{ICONS[name]}</g>
+    </svg>
+  )
+}
+
 export default function Contact() {
   const [sent, setSent] = useState(false)
 
@@ -27,9 +53,9 @@ export default function Contact() {
 
           <div className="mt-10 space-y-5 text-sm">
             {[
-              ['📍', 'Av. Paulista, 1000 — São Paulo, SP'],
-              ['✉️', 'contato@andrademartins.adv.br'],
-              ['📞', '(11) 4000-0000'],
+              ['pin', 'Av. Paulista, 1000 — São Paulo, SP'],
+              ['mail', 'contato@andrademartins.adv.br'],
+              ['phone', '(11) 4000-0000'],
             ].map(([icon, text], i) => (
               <motion.div
                 key={text}
@@ -40,7 +66,7 @@ export default function Contact() {
                 className="flex items-center gap-3 text-cream-100/80"
               >
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/5 text-gold-400">
-                  {icon}
+                  <ContactIcon name={icon} />
                 </span>
                 <span className="min-w-0 break-words">{text}</span>
               </motion.div>
@@ -66,9 +92,11 @@ export default function Contact() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 15, delay: 0.1 }}
-                    className="text-4xl"
+                    className="flex h-14 w-14 items-center justify-center rounded-full bg-gold-500/15 text-gold-400"
                   >
-                    ✅
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                      <path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0Z" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </motion.span>
                   <p className="font-serif text-xl text-cream-50">Mensagem enviada!</p>
                   <p className="text-sm text-cream-100/60 max-w-xs">
