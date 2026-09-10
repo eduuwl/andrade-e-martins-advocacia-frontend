@@ -1,3 +1,6 @@
+import { motion } from 'framer-motion'
+import Reveal from './Reveal'
+
 const AREAS = [
   {
     title: 'Direito Civil',
@@ -35,29 +38,36 @@ export default function PracticeAreas() {
   return (
     <section id="areas" className="bg-cream-50 py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-widest text-gold-600">
             Áreas de Atuação
           </span>
           <h2 className="mt-3 font-serif text-3xl lg:text-4xl text-navy-900">
             Soluções jurídicas completas, do primeiro contato à resolução
           </h2>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {AREAS.map((a) => (
-            <div
-              key={a.title}
-              className="group rounded-2xl border border-navy-900/10 bg-white p-7 transition-all hover:border-gold-500/50 hover:shadow-lg hover:shadow-navy-900/5"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-900 text-gold-400 transition-colors group-hover:bg-gold-500 group-hover:text-navy-950">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                  <path d={a.icon} strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className="mt-5 font-serif text-lg text-navy-900">{a.title}</h3>
-              <p className="mt-2 text-sm text-navy-900/60 leading-relaxed">{a.desc}</p>
-            </div>
+          {AREAS.map((a, i) => (
+            <Reveal key={a.title} delay={i * 0.08} duration={0.5}>
+              <motion.div
+                whileHover={{ y: -6 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                className="group h-full rounded-2xl border border-navy-900/10 bg-white p-7 transition-shadow hover:border-gold-500/50 hover:shadow-lg hover:shadow-navy-900/5"
+              >
+                <motion.div
+                  whileHover={{ rotate: -8, scale: 1.08 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-900 text-gold-400 transition-colors group-hover:bg-gold-500 group-hover:text-navy-950"
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                    <path d={a.icon} strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </motion.div>
+                <h3 className="mt-5 font-serif text-lg text-navy-900">{a.title}</h3>
+                <p className="mt-2 text-sm text-navy-900/60 leading-relaxed">{a.desc}</p>
+              </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>
